@@ -1,0 +1,12 @@
+
+<div class="container mt-5 text-center">
+  <h1>Your score: <%= @score.round(1) %></h1>
+  <h2>Your word was: <%= @attempt %></h2>
+  <h3>Elapsed time: <%= @elapsed_time.round(1) %> seconds</h3>
+
+  <% if @score == 0 %>
+    <p>Word does not exist</p>
+  <% end %>
+
+  <a href="/" class="btn btn-danger mt-3">Try again</a>
+</div>

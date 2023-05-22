@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ul {
+  padding: 0;
+  place-content: center;
+}
+
+#input-text {
+  width: 500px;
+  margin: auto;
+}
