@@ -1,6 +1,6 @@
 
 
-<div class="container mt-5 text-center" data-controller="game">
+<div class="container mt-5 text-center" data-controller="game" data-action="keydown->game#keyCheck">
   <h1>Word Game</h1>
   <p>Type in the longest word you can using these characters</p>
   <form action="/score" method="GET">
@@ -8,13 +8,13 @@
     <ul class="d-flex">
       <% 10.times do %>
         <% letter = ('a'..'z').to_a.sample %>
-        <li class="list-group-item"><input type="button" class="btn btn-primary" data-action="click->game#printInput" value="<%=letter.upcase%>"></li>
+        <li class="list-group-item"><input type="button" class="btn btn-primary" data-action="click->game#printInput" data-game-target="button" value="<%=letter.upcase%>"></li>
       <% end %>
     </ul>
     <div class="d-flex" id="input-text">
       <input readonly class="form-control m-auto" name="word" data-game-target="input" type="text">
+      <a href="" class="btn btn-danger mx-1" data-action="click->game#backspace"><i class="fa-solid fa-arrow-left-long" style="color: #ffffff;"></i></a>
       <input class="btn btn-secondary" type="submit" value="Send">
-      <%# <a href="" class="btn btn-danger" data-action="click->game#backspace"><i class="fa-solid fa-arrow-left-long" style="color: #ffffff;"></i></a> %>
     </div>
     <a class="btn btn-danger mt-4" href="">Reset</a>
   </form>
